@@ -1,0 +1,19 @@
+# Ignore PHP sessions
+*.session
+
+# Ignore IDE/editor folders
+.vscode/
+.idea/
+
+# Ignore node_modules if you're using Node.js
+node_modules/
+
+# Ignore logs and debug files
+*.log
+
+# Ignore temporary files
+*~
+*.swp
+
+# Ignore system files
+.DS_Store
