@@ -1,0 +1,446 @@
+body {
+  background-color: #a9e5f0;
+  cursor: url(./img/blaster.png) 10 10, auto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fredoka", sans-serif;
+  color: #1f1d1dc2;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+a {
+  font-family: "Fredoka", sans-serif;
+  font-size: 24px;
+
+  color: #00000099;
+  cursor: url(./img/blaster.png) 10 10, pointer;
+  text-decoration: none;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  max-width: 1199px;
+  min-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ====================================Common Classes ==============*/
+.header {
+  margin-top: 35px;
+}
+.navigation {
+  height: 140px;
+  background-color: #81c3d8;
+  letter-spacing: 0.1cm;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 10px -6px 25px 7px rgba(56, 117, 117, 0.51);
+  -webkit-box-shadow: 10px -6px 25px 7px rgba(56, 117, 117, 0.51);
+  -moz-box-shadow: 10px -6px 25px 7px rgba(56, 117, 117, 0.51);
+}
+
+.active {
+  color: #d33fd3b0;
+
+  font-size: 32px;
+  text-decoration: none;
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/*========================================= Home Page ==============*/
+/*============================================ Hero ==============*/
+.hero {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 80px;
+}
+.hero-img {
+  width: 630px;
+  height: 400px;
+  display: block;
+  margin-top: -30px;
+  margin-left: -20px;
+}
+
+.hero-desc-first {
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+.hero-desc-first,
+.hero-desc-second {
+  font-size: 22px;
+  text-align: center;
+}
+
+.hero-items-span {
+  font-weight: 500;
+  color: #5f11dd7f;
+}
+.hero-list {
+  list-style-image: url("./img/coursor-blast\ 1.png");
+  margin-left: -10px;
+}
+
+.hero-item {
+  font-size: 22px;
+}
+
+/*====================================== History ==============*/
+
+.history-header {
+  font-weight: 800;
+  font-size: 52px;
+  color: rgba(211, 43, 226, 0.666);
+  letter-spacing: 0.5cm;
+  margin-bottom: 30px;
+}
+
+.history-list-item {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.history-list-item:last-child,
+.history-list-item:first-child {
+  flex-direction: row-reverse;
+}
+
+.history-list-item:last-child {
+  margin-bottom: 0;
+}
+.item-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #296ffbcf;
+  margin-bottom: 30px;
+}
+.item-desc {
+  width: 560px;
+}
+
+.history-item-wrapper {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.item-img {
+  width: 400px;
+}
+.home > .footer-img {
+  margin-bottom: -22px;
+}
+
+/*================================= Footer ======================*/
+.footer {
+  padding-top: 20px;
+  height: 304px;
+  background-color: rgba(216, 96, 226, 0.666);
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.footer-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500px;
+  color: #faf615d3;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 40px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-footer-link {
+  color: rgba(207, 237, 99, 0.73);
+}
+.footer-desc {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: center;
+}
+.footer-item {
+  width: 300px;
+}
+.fotter-item-text {
+  margin-bottom: 5px;
+  color: rgba(9, 58, 237, 0.964);
+}
+.footer-item-link {
+  cursor: pointer;
+}
+
+/*===============================FILMS PAGE=====================*/
+
+.films-wrap-search {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.films-searc-stitch {
+  margin-top: -15px;
+}
+
+.films-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+}
+
+.films-item {
+  flex-wrap: nowrap;
+  background-color: #dcf380bb;
+  border-radius: 30px;
+  border: 5px solid #b5ce54;
+  height: 450px;
+}
+
+.films-link {
+  display: flex;
+  width: 1100px;
+  gap: 80px;
+}
+.films-wrapper-desc {
+  width: 575px;
+}
+
+.films-item-img {
+  width: 300px;
+
+  max-height: 425px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.films-title {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 28px;
+  color: #d27bc1;
+  margin-bottom: 10px;
+}
+.films-year {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: normal;
+  color: #d27bc1ae;
+}
+.films-desc {
+  font-weight: normal;
+  font-size: 26px;
+}
+.footer-films-img {
+  margin-bottom: -130px;
+  margin-left: -50px;
+  width: 500px;
+}
+
+/*============================Series PAGE=====================*/
+
+.series-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 120px;
+}
+
+.series-item {
+  width: 550px;
+  background-color: #dcf380bf;
+  border-radius: 30px;
+  border: 5px solid #b5ce54;
+}
+
+.series-item-img {
+  display: block;
+  width: 436px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.series-wrapper-desc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+.series-title {
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 28px;
+  color: #d27bc1;
+  margin-bottom: 10px;
+  width: inherit;
+}
+.series-seasons {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: normal;
+  color: #d27bc1ae;
+}
+.series-desc {
+  font-weight: normal;
+  font-size: 26px;
+  width: 402px;
+}
+.footer-series-img {
+  width: 492px;
+  margin-bottom: -45px;
+  margin-top: -300px;
+}
+
+/*============================Comics PAGE=====================*/
+
+.main-comic-title {
+  margin-top: 40px;
+  font-weight: 600;
+  font-size: 48px;
+  color: #f49f9fef;
+  text-align: center;
+}
+
+.comic-main-text {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.comic-main-text > a {
+  color: #e18181bb;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.comics-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.comics-item {
+  width: 371px;
+  background-color: #9ce8b0;
+  border-radius: 30px;
+  border: 5px solid #44c165;
+  align-items: center;
+}
+.comics-img {
+  width: 260px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.comics-desc {
+  text-align: center;
+  width: 280px;
+  margin: 0 auto;
+  height: 330px;
+}
+
+.comics-title {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 24px;
+  color: #d27bc1;
+  margin-bottom: 10px;
+}
+.comics-text {
+  font-weight: normal;
+  font-size: 20px;
+  padding-bottom: 35px;
+}
+.footer-img-comic {
+  width: 400px;
+  margin-left: 730px;
+  margin-top: -200px;
+  margin-bottom: -15px;
+}
+ /*=========================Game PAGE =====================*/
+.wrapper-game {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+.games-list {
+  list-style-image: url("./img/coursor-blast\ 1.png");
+}
+.games-item {
+  margin-bottom: 30px;
+}
+.games-info > a {
+  font-weight: normal;
+  font-size: 28px;
+  color: #5fc57a;
+}
+.games-title {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  color: #d27bc1;
+  margin-bottom: 10px;
+}
+.games-platform {
+  font-weight: normal;
+  font-size: 28px;
+}
+.games-desc {
+  font-weight: normal;
+  font-size: 28px;
+}
+
+.footer-img-game{
+  width: 390px;
+  margin-left: 790px;
+  margin-bottom: -97px;
+  transform: rotate(-2.7deg);
+}
