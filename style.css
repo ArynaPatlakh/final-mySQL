@@ -1,8 +1,43 @@
 body {
-  background-color: #a9e5f0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   cursor: url(./img/blaster.png) 10 10, auto;
 }
 
+body {
+  background: linear-gradient(
+    135deg,
+    #87ceeb,
+    #1e90ff,
+    #40e0d0,
+    #32cd32,
+    #ffd700,
+    #ffaec9
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body,
+html {
+  height: 100%;
+}
 p,
 h1,
 h2,
@@ -40,7 +75,14 @@ ul {
 .header {
   margin-top: 35px;
 }
+
 .navigation {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
   height: 140px;
   background-color: #81c3d8;
   letter-spacing: 0.1cm;
@@ -61,6 +103,7 @@ ul {
   font-size: 32px;
   text-decoration: none;
   position: relative;
+  transition: none;
 }
 
 .active::after {
@@ -74,9 +117,25 @@ ul {
   left: 0;
 }
 
+.nav-link {
+  transition: all 0.5s ease-out;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  transform: scale(1.3);
+  color: #1f1d1df1;
+}
+
+.active:hover,
+.active:focus {
+  transform: none;
+  color: #d33fd3b0;
+}
 /*========================================= Home Page ==============*/
 /*============================================ Hero ==============*/
 .hero {
+  margin-top: 180px;
   display: flex;
   flex-direction: row-reverse;
   margin-bottom: 80px;
@@ -169,7 +228,7 @@ ul {
 .footer-title {
   text-align: center;
   font-size: 32px;
-  font-weight: 500px;
+  font-weight: 500;
   color: #faf615d3;
 }
 
@@ -185,6 +244,13 @@ ul {
 
 .nav-footer-link {
   color: rgba(207, 237, 99, 0.73);
+  transition: all 0.5s ease-out;
+}
+
+.nav-footer-link:hover,
+.nav-footer-link:focus {
+  color: rgba(213, 255, 60, 0.822);
+  transform: scale(1.12);
 }
 .footer-desc {
   text-align: center;
@@ -208,19 +274,54 @@ ul {
 
 /*===============================FILMS PAGE=====================*/
 
+.films {
+  /* margin: 0 auto; */
+  margin-top: 190px;
+}
 .films-wrap-search {
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-around;
+
+  justify-content: center;
+  gap: 40px;
 }
+
+.films-search-input {
+  padding: 8px;
+  width: 250px;
+  border: 2px solid #3498db;
+  background-color: #abdeffc2;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.films-search-btn {
+  width: 80px;
+  height: 40px;
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: rgba(255, 255, 255, 0.804);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px;
+  transition: all 0.5s ease-out;
+}
+
+.films-search-btn:hover,
+.films-search-btn:focus {
+  background-color: #2980b9;
+}
+
 .films-searc-stitch {
-  margin-top: -15px;
+  margin-top: -20px;
+  width: 220px;
 }
 
 .films-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 64px;
 }
 
@@ -229,28 +330,35 @@ ul {
   background-color: #dcf380bb;
   border-radius: 30px;
   border: 5px solid #b5ce54;
-  height: 450px;
 }
 
 .films-link {
   display: flex;
   width: 1100px;
-  gap: 80px;
+  gap: 30px;
+  transition: all 0.5s ease-out;
 }
+
+.films-link:hover,
+.films-link:focus {
+  background-color: #c8e944bb;
+  border-radius: 30px;
+}
+
 .films-wrapper-desc {
-  width: 575px;
+  width: 700px;
+  margin-right: 25px;
 }
 
 .films-item-img {
-  width: 300px;
+  width: 280px;
 
   max-height: 425px;
   margin: 0 auto;
-  margin-top: 10px;
 }
 .films-title {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
   font-weight: 500;
   font-size: 28px;
   color: #d27bc1;
@@ -258,42 +366,74 @@ ul {
 }
 .films-year {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-weight: normal;
   color: #d27bc1ae;
 }
-.films-desc {
+
+.films-desc,
+.films-director,
+.films-genre,
+.films-duration {
+  font-weight: 300;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.films-span-duration,
+.films-span-genre,
+.films-span-director {
   font-weight: normal;
-  font-size: 26px;
+  color: #bc6cac;
 }
 .footer-films-img {
-  margin-bottom: -130px;
+  margin-bottom: -105px;
   margin-left: -50px;
-  width: 500px;
+  width: 350px;
+
+  transition: width 2s, height 2s, background-color 2s, rotate 2s;
+}
+
+.footer-films-img:hover,
+.footer-films-img:focus {
+  width: 450px;
+  rotate: 180deg;
 }
 
 /*============================Series PAGE=====================*/
 
+.series {
+  margin-top: 210px;
+}
 .series-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
+.series-item-link {
+  display: block;
+  height: 100%;
+}
 .series-item {
   width: 550px;
   background-color: #dcf380bf;
   border-radius: 30px;
   border: 5px solid #b5ce54;
+  transition: all 0.5s ease-out;
+}
+
+.series-item:hover {
+  background-color: #c8e944bb;
 }
 
 .series-item-img {
   display: block;
-  width: 436px;
+  width: 236px;
   margin: 0 auto;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .series-wrapper-desc {
@@ -301,11 +441,11 @@ ul {
   flex-wrap: wrap;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .series-title {
-  margin-top: 50px;
+  margin-top: 20px;
   font-weight: 500;
   font-size: 28px;
   color: #d27bc1;
@@ -314,27 +454,31 @@ ul {
 }
 .series-seasons {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-weight: normal;
   color: #d27bc1ae;
 }
 .series-desc {
   font-weight: normal;
-  font-size: 26px;
-  width: 402px;
+  font-size: 24px;
+  width: 400px;
 }
 .footer-series-img {
   width: 492px;
   margin-bottom: -45px;
-  margin-top: -300px;
+  margin-top: -400px;
+  margin-left: -50px;
 }
 
 /*============================Comics PAGE=====================*/
+.comics {
+  margin-top: 200px;
+}
 
 .main-comic-title {
   margin-top: 40px;
-  font-weight: 600;
-  font-size: 48px;
+  font-weight: 500;
+  font-size: 40px;
   color: #f49f9fef;
   text-align: center;
 }
@@ -344,16 +488,21 @@ ul {
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
-  font-weight: 500;
-  font-size: 32px;
+  font-weight: 400;
+  font-size: 28px;
 }
 
 .comic-main-text > a {
+  display: block;
   color: #e18181bb;
-  font-weight: 600;
-  font-size: 32px;
+  font-weight: 500;
+  font-size: 30px;
+  transition: all 0.5s ease-out;
 }
 
+.comic-main-text > a:hover {
+  transform: scale(1.2);
+}
 .comics-list {
   display: flex;
   flex-wrap: wrap;
@@ -369,6 +518,10 @@ ul {
   border-radius: 30px;
   border: 5px solid #44c165;
   align-items: center;
+  transition: all 0.5s ease-out;
+}
+.comics-item:hover {
+  background-color: #44c165;
 }
 .comics-img {
   width: 260px;
@@ -400,10 +553,10 @@ ul {
 .footer-img-comic {
   width: 400px;
   margin-left: 730px;
-  margin-top: -200px;
+  margin-top: -420px;
   margin-bottom: -15px;
 }
- /*=========================Game PAGE =====================*/
+/*=========================Game PAGE =====================*/
 .wrapper-game {
   margin-top: 50px;
   display: flex;
@@ -411,6 +564,31 @@ ul {
   justify-content: space-around;
   flex-direction: row-reverse;
 }
+.video-game-img {
+  width: 400px;
+  height: 430px;
+  transition: all 0.5s ease-out;
+}
+
+.video-game-img:hover {
+  transform: scale(1.5);
+}
+
+.online-game {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.online-game-title {
+  font-weight: 600;
+  font-size: 24px;
+  color: #ec5496;
+  margin-bottom: 10px;
+}
+
 .games-list {
   list-style-image: url("./img/coursor-blast\ 1.png");
 }
@@ -418,29 +596,32 @@ ul {
   margin-bottom: 30px;
 }
 .games-info > a {
-  font-weight: normal;
-  font-size: 28px;
+  font-weight: 500;
+  font-size: 26px;
   color: #5fc57a;
+}
+.games-info > a:hover {
+  color: #27d355;
 }
 .games-title {
   margin-top: 20px;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 28px;
   color: #d27bc1;
   margin-bottom: 10px;
 }
 .games-platform {
   font-weight: normal;
-  font-size: 28px;
+  font-size: 24px;
 }
 .games-desc {
   font-weight: normal;
-  font-size: 28px;
+  font-size: 24px;
 }
 
-.footer-img-game{
-  width: 390px;
-  margin-left: 790px;
-  margin-bottom: -97px;
-  transform: rotate(-2.7deg);
+.footer-img-game {
+  width: 250px;
+  margin-left: 800px;
+  margin-bottom: -63px;
+  transform: rotate(-3deg);
 }

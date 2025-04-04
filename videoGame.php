@@ -47,7 +47,7 @@ $result = $conn->query($sql);
     </nav>
 </header>
 
-<main class="main container">
+<main class="main container comics">
 
 <div class="container wrapper-game">
 <?php if ($result->num_rows > 0) { ?>
@@ -68,7 +68,12 @@ $result = $conn->query($sql);
     } ?>
 
     <?php $conn->close(); ?>
-    <img src="./img/video-game-page.png" alt="Lilo & Stitch on the ourple bike">
+    <img class="video-game-img" src="./img/video-game-page.png" alt="Lilo & Stitch on the ourple bike">
+
+</div>
+<div class="online-game container">
+  <h3 class="online-game-title">Play NOW</h3>
+<iframe  src="https://www.retrogames.cc/embed/19478-disney-s-lilo-stitch-u-mode7.html" width="100%" height="600" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
 </div>
     <img class="footer-img-game" src="./img/footer-video-game-page.png" alt="Stitch">
 </main>

@@ -45,13 +45,13 @@ $result = $conn->query($sql);
         </nav>
     </header>
 
-    <main class="main">
+    <main class="main series">
         <div class="container">
         <?php if ($result->num_rows > 0) { ?>
             <ul class="series-list container">
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <li class="series-item">
-                        <a class="series-item-link" href="watch.php?series_id=<?php echo $row['series_id']; ?>">
+                        <a class="series-item-link" href="seriesDetails.php?id=<?php echo $row['series_id']; ?>">
                             <img src="<?php echo htmlspecialchars($row['image_path']); ?>" 
                                  alt="Cover for <?php echo htmlspecialchars($row['title']); ?>" 
                                  class="series-item-img">

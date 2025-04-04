@@ -16,7 +16,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error); 
 } 
 
-$sql = "SELECT film_id, title, release_year, description, image_path FROM Films";
+$sql = "SELECT film_id, title, release_year, description, image_path, duration, genre, director  FROM Films";
+
+if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
+  $search = $conn->real_escape_string(trim($_GET['search']));
+  $sql .= " WHERE title LIKE '%$search%' OR genre LIKE '%$search%' OR director LIKE '%$search%'";
+}
+
 $result = $conn->query($sql); 
 ?>
 
@@ -28,7 +34,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Films - Lilo & Stitch</title>
-    <link rel="stylesheet" href="/final-project-SQL/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,41 +53,45 @@ $result = $conn->query($sql);
       </nav>
       
     </header>
-    <main class="main container">
+    <main class="main container films">
         <div class="container">
-            <div class="films-wrap-search">
-            <p>ENTER SERAC BUTTON-FORM</p>
-            <img class="films-searc-stitch" src="./img/films-search.png" alt="stitch">
-            </div>
+        <div class="films-wrap-search">
+    <form method="GET" action="films.php">
+        <input type="text" name="search" placeholder="Search for a film..." class="films-search-input" 
+               value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+        <button type="submit" class="films-search-btn">Search</button>
+    </form>
+    <img class="films-searc-stitch" src="./img/films-search.png" alt="stitch">
+   </div>
+
        
         <?php if ($result->num_rows > 0) { ?>
        
-       <ul class="films-list container">
-       <?php while($row = $result->fetch_assoc()) { ?>
-<li class="films-item">
-    <a class="films-link" href="watch.php?film_id=<?php echo $row["film_id"]; ?>">
-<img src="<?php echo $row["image_path"]; ?>" alt="cover for <?php echo $row["title"]; ?>" class="films-item-img">
-    <div class="films-wrapper-desc">
-        <h3 class="films-title"><?php echo $row["title"]; ?><h4 class="films-year"><?php echo $row["release_year"]; ?></h4></h3>
-        
-        <p class="films-desc"><?php echo $row["description"]; ?></p>
-    </div>
-    </a>
-</li>
-        
-        <?php } ?>
-       </ul>
+          <ul class="films-list container">
+    <?php while ($row = $result->fetch_assoc()) { ?>
+        <li class="films-item">
+            <a class="films-link" href="filmDetails.php?id=<?php echo $row['film_id']; ?>">
+                <img src="<?php echo $row["image_path"]; ?>" alt="cover for <?php echo $row["title"]; ?>" class="films-item-img">
+                <div class="films-wrapper-desc">
+                    <h3 class="films-title"><?php echo $row["title"]; ?> </h3>
+                        <h4 class="films-year"><?php echo $row["release_year"]; ?></h4>
+                        <p class="films-duration"><span class="films-span-duration">Duration: </span><?php echo $row["duration"]; ?></p>
+                        <p class="films-genre"><span class="films-span-genre">Genre: </span><?php echo $row["genre"]; ?></p>
+                        <p class="films-director"><span class="films-span-director">Director: </span><?php echo $row["director"]; ?></p>
+                   
+                    <p class="films-desc"><?php echo $row["description"]; ?></p>
+                </div>
+            </a>
+        </li>
+    <?php } ?>
+</ul>
+
            <?php } else { 
         echo "<p>No films found.</p>"; 
     } ?>
 
     <?php $conn->close(); ?>
         </div>
-        
-
-
-  
-
     <img
         class="footer-films-img"
         width="300px"

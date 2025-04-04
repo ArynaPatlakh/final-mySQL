@@ -44,21 +44,23 @@ $result = $conn->query($sql);
         </nav>
     </header>
 
-    <main class="main container">
+    <main class="main container comics">
        
         <div class="container">
             <h2 class="main-comic-title">The most popular comics </h2>
-            <p class="comic-main-text">This page is for informational purposes only. If you want to read the amazing stories of Lilo and Stitch click <a target="_blank" href="https://leagueofcomicgeeks.com/comics/series/171378/lilo-stitch">HERE</a> or click on the comic of your choice below</p>
+            <p class="comic-main-text">This page is for informational purposes only. If you want to read the amazing stories of Lilo and Stitch click <a target="_blank" href="https://leagueofcomicgeeks.com/comics/series/171378/lilo-stitch">&#8594; HERE &#8592; </a> or click on the comic of your choice below</p>
         <?php if ($result->num_rows > 0) { ?>
             <ul class="comics-list">
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <li class="comics-item">
-                        <a target="_blank" href="<?php echo $row["link"]?>"><img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="comics-img">
-                        </a>
-                        <div class="comics-desc">
+                        <a target="_blank" href="<?php echo $row["link"]?>">
+                          <img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="comics-img">
+                          <div class="comics-desc">
                             <h3 class="comics-title"><?php echo $row["issue_number"] . ": " . htmlspecialchars($row["title"]); ?></h3>
                             <p class="comics-text"><?php echo htmlspecialchars($row["description"]); ?></p>
                         </div>
+                        </a>
+                        
                     </li>
                 <?php } ?>
             </ul>
