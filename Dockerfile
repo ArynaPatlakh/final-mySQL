@@ -1,24 +1,21 @@
-FROM php:8.0-apache
+FROM php:8.0-cli
 
-# Установка git, unzip и других утилит
+# Install necessary tools
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     zip \
     && rm -rf /var/lib/apt/lists/*
 
-# Установка Composer
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Установка расширения mysqli
-RUN docker-php-ext-install mysqli
-
-# Копируем проект
+# Copy project files
 COPY . /var/www/html
 WORKDIR /var/www/html
 
-# Устанавливаем зависимости Composer
-RUN composer install
+# Install dependencies
+RUN composer install || true
 
-# (Опционально) Включаем mod_rewrite, если используешь .htaccess
-RUN a2enmod rewrite
+# Serve static and PHP files on port 8000
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "."]
