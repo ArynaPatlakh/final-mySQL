@@ -1,9 +1,12 @@
 <?php
+require __DIR__ . '/vendor/autoload.php'; // ✅ Required for Dotenv
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+
 
 $servername = $_ENV['DB_SERVER'];
 $username = $_ENV['DB_USERNAME'];
